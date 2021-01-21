@@ -1,0 +1,231 @@
+@import url('mobileMenuContact.css');
+
+a.nav-link {
+    display: block;
+    font-size: 20px;
+    transform: translateY(35px);
+    text-align: center;
+    text-decoration: none;
+    color: rgba(57, 62, 70, 0.9);
+}
+
+#mobile-menu-header {
+    display: none;
+    visibility: hidden;
+}
+
+.nav-bar {
+    position: fixed;
+    z-index: 2;
+    width: 7%;
+}
+
+.scene {
+    width: 100px;
+    height: 100px;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-out;
+    transform-origin: 0 0;
+}
+
+.scene:hover .box {
+    transform: rotateY(-90deg);
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    }
+
+.front {
+    transform: rotateY(0deg);
+    color: #43c229;
+    text-align: center;    
+}
+.fas, .fab {
+    font-size: 20px;
+    transform: translateY(30px);
+}
+
+.right {
+    cursor: pointer;
+    transform: rotateY(80deg);
+    left: -80px;
+    background-color: #43c229;
+    color: rgba(57, 62, 70, 0.9);   
+    font-size: 20px;
+}
+
+body {
+    background: rgba(57, 62, 70, 0.9);
+    color: #fff;
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5; 
+}
+
+
+body#bg-img {
+    background: url(../image/toronto_dark.JPG);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+}
+
+body#bg-img:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    background: rgba(57, 62, 70, 0.90); 
+}
+
+.page-header {
+    text-align: center;
+    font-size: 25px;
+    vertical-align: middle;
+    color: #fff;
+    padding-top: 25px;
+}
+
+#contact-form {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.form-section {
+    background: rgba(57, 62, 70, 0.75);
+    padding: 25px;
+    margin: 95px 0;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form-section h2 {
+    display: block;
+    color: #43c229;
+    font-size: 18px;
+    text-align: center;
+}
+
+fieldset {
+    text-align: center;
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 5px;
+    width: 100%;
+}
+
+.form-section input[type="text"],
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section textarea {
+    width: 100%;
+    border: 1px solid #43c229;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+}
+
+.form-section input[type="text"],
+.form-section input[type="text"],
+.form-section input[type="email"],
+.form-section textarea:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-section textarea {
+    height: 100px;
+    max-width: 100%;
+    resize: vertical;
+}
+
+.form-section button[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #43c229;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.form-section button[type="submit"]:hover {
+    background: #3ae717;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form-section button[type="reset"] {
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    background: rgb(77, 84, 95);
+    color: #fff;
+    border: none;
+    margin: 0 0 5px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.form-section button[type="reset"]:hover {
+    background: #ec1a1a;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    -moz-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form-section button[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+.form-section input:focus,
+.form-section textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+    background: rgba(57, 62, 70, 0.9);
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(57, 62, 70, 0.9);
+    box-shadow: inset 0 0 10px grey; 
+    border-radius: 10px;
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background:#fff; 
+    border-radius: 10px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fff; 
+}

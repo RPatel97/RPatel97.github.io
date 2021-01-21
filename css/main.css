@@ -1,0 +1,175 @@
+@import url('mobileMenuIndx.css');
+
+header {
+    display: none;
+    visibility: hidden;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+.my-name {
+    color: #43c229;
+}
+
+.your-img {
+    text-align: center;
+}
+
+.portrait {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #43c229;
+    background-size: cover;
+}
+
+a.nav-link {
+    display: block;
+    font-size: 20px;
+    transform: translateY(35px);
+    text-align: center;
+    text-decoration: none;
+    color: rgba(57, 62, 70, 0.9);
+}
+
+
+.scene {
+    width: 100px;
+    height: 100px;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease-out;
+    transform-origin: 0 0;
+}
+
+.scene:hover .box {
+    transform: rotateY(-90deg);
+    cursor: pointer;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-origin: 0 0;
+    }
+
+.front {
+    transform: rotateY(0deg);
+    color: #43c229;
+    text-align: center;    
+}
+.fas, .fab {
+    font-size: 20px;
+    transform: translateY(30px);
+}
+
+.right {
+    cursor: pointer;
+    transform: rotateY(80deg);
+    left: -80px;
+    background-color: #43c229;
+    color: rgba(57, 62, 70, 0.9);   
+    font-size: 20px;
+}
+
+body {
+    background: rgba(57, 62, 70, 0.85);
+    color: #fff;
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5; 
+}
+
+
+body#bg-img {
+    background: url(../image/bckgrnd.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 100%;
+}
+
+body#bg-img:after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: rgba(57, 62, 70, 0.85); 
+}
+
+h1, h2 {
+    margin: 0;
+    font-weight: 400;
+}
+
+h1.small-heading, h2.small-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-bar {
+    position: fixed;
+    z-index: 2;
+    width: 7%;
+}
+
+.txt-secondary {
+    color: #43c229;
+}
+
+.lrg-header {
+    font-size: 3.5rem;
+    padding-right: 15rem;
+    padding-left: 15rem;
+}
+
+main {
+    padding-top: 15rem;
+    text-align: center; 
+    min-height: calc(60vh);
+    overflow-y: hidden;
+}
+
+main .icons{
+    bottom: 5rem;
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+    position: fixed;
+}
+
+main .icons a {
+    align-content: center;
+    padding-left: 5rem;
+    padding-right: 5rem; 
+}
+
+main .icons a:hover {
+    color: #43c229;
+    transition: all 0.5s ease-out;
+}

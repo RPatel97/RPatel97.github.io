@@ -1,0 +1,930 @@
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    a.nav-link, .scene {
+        display: none;
+    }
+
+    header {
+        display: inline;
+        visibility: visible;
+    }
+
+    #title-header {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .briefcase-img {
+        display: none;
+    }
+    
+    .project-header {
+        color: #fff;
+        vertical-align: middle;
+        padding: 25px;
+    }
+    
+    .fa-github {
+        display: none;
+    }
+
+    .horizontal-grid {
+        display: none;
+        visibility: hidden;
+    }
+
+    header#mobile-menu-header {
+        display: inline;
+        visibility: visible;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 35px;
+        cursor: pointer;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: #43c229;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn.close {
+        position: fixed;
+        transform: rotate(180deg); 
+    }
+    .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);  
+    }
+    .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; 
+    }
+    .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); 
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 0.9;
+        visibility: hidden;
+    }
+
+    .mobile-menu.show{
+        visibility: visible;
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        margin:0;
+        padding:0;
+        background: rgba(57, 62, 70, 0.9) ;
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        transition: all 0.5s ease-out;
+    }
+
+    .mobile-menu-nav.show {
+        transform: translate3d(0, 0, 0); 
+    }
+
+    .mobile-menu .nav-item {
+        transform: translate3d(600px, 0, 0);
+        transition: all 0.5s ease-out; }
+    .mobile-menu .nav-item.show {
+        transform: translate3d(0, 0, 0); 
+    }
+    .mobile-menu .nav-item.current > a {
+        color: #43c229; 
+    }
+    .mobile-menu .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.5s ease-out; 
+    }
+        
+    .nav-item:nth-child(1) {
+      transition-delay: 0.1s; }
+    
+    .nav-item:nth-child(2) {
+      transition-delay: 0.2s; }
+    
+    .nav-item:nth-child(3) {
+      transition-delay: 0.3s; }
+    
+    .nav-item:nth-child(4) {
+      transition-delay: 0.4s; }
+    .nav-item:nth-child(5) {
+        transition-delay: 0.5s; }
+    
+    .project-details {
+        scroll-snap-align: start;
+    }
+
+    .project-details-2 {
+        scroll-snap-align: center;
+    }
+
+    .project-details-3 {
+        scroll-snap-align: end;
+    }
+
+    .slider {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin-top: 0rem;
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;  
+    }
+
+    .slide {
+        width: 50vw;
+        flex-shrink: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow: auto;
+        scroll-snap-align: start;
+    }
+    .slides > div {
+        scroll-snap-align: start;
+    }
+
+    html {
+        height: 100%;
+        overflow:hidden;
+    }
+}
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    a.nav-link, .scene {
+        display: none;
+    }
+
+    header {
+        display: inline;
+        visibility: visible;
+    }
+
+    #title-header {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .briefcase-img {
+        display: none;
+    }
+    
+    .project-header {
+        color: #fff;
+        vertical-align: middle;
+        padding: 25px;
+    }
+    
+    .fa-github {
+        display: none;
+    }
+
+    .horizontal-grid {
+        display: none;
+        visibility: hidden;
+    }
+
+    header#mobile-menu-header {
+        display: inline;
+        visibility: visible;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 35px;
+        cursor: pointer;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: #43c229;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn.close {
+        position: fixed;
+        transform: rotate(180deg); 
+    }
+    .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);  
+    }
+    .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; 
+    }
+    .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); 
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 0.9;
+        visibility: hidden;
+    }
+
+    .mobile-menu.show{
+        visibility: visible;
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        margin:0;
+        padding:0;
+        background: rgba(57, 62, 70, 0.9) ;
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        transition: all 0.5s ease-out;
+    }
+
+    .mobile-menu-nav.show {
+        transform: translate3d(0, 0, 0); 
+    }
+
+    .mobile-menu .nav-item {
+        transform: translate3d(600px, 0, 0);
+        transition: all 0.5s ease-out; }
+    .mobile-menu .nav-item.show {
+        transform: translate3d(0, 0, 0); 
+    }
+    .mobile-menu .nav-item.current > a {
+        color: #43c229; 
+    }
+    .mobile-menu .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.5s ease-out; 
+    }
+        
+    .nav-item:nth-child(1) {
+      transition-delay: 0.1s; }
+    
+    .nav-item:nth-child(2) {
+      transition-delay: 0.2s; }
+    
+    .nav-item:nth-child(3) {
+      transition-delay: 0.3s; }
+    
+    .nav-item:nth-child(4) {
+      transition-delay: 0.4s; }
+    .nav-item:nth-child(5) {
+        transition-delay: 0.5s; }
+    
+    .project-details {
+        scroll-snap-align: start;
+    }
+
+    .project-details-2 {
+        scroll-snap-align: center;
+    }
+
+    .project-details-3 {
+        scroll-snap-align: end;
+    }
+
+    .slider {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin-top: 0rem;
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;  
+    }
+
+    .slide {
+        width: 50vw;
+        flex-shrink: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow: auto;
+        scroll-snap-align: start;
+    }
+    .slides > div {
+        scroll-snap-align: start;
+    }
+
+    html {
+        height: 100%;
+        overflow:hidden;
+    }
+}
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    a.nav-link, .scene {
+        display: none;
+    }
+
+    header {
+        display: inline;
+        visibility: visible;
+    }
+
+    #title-header {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .briefcase-img {
+        display: none;
+    }
+    
+    .project-header {
+        color: #fff;
+        vertical-align: middle;
+        padding: 25px;
+    }
+    
+    .fa-github {
+        display: none;
+    }
+
+    .horizontal-grid {
+        display: none;
+        visibility: hidden;
+    }
+
+    header#mobile-menu-header {
+        display: inline;
+        visibility: visible;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 35px;
+        cursor: pointer;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: #43c229;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn.close {
+        position: fixed;
+        transform: rotate(180deg); 
+    }
+    .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);  
+    }
+    .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; 
+    }
+    .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); 
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 0.9;
+        visibility: hidden;
+    }
+
+    .mobile-menu.show{
+        visibility: visible;
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        margin:0;
+        padding:0;
+        background: rgba(57, 62, 70, 0.9) ;
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        transition: all 0.5s ease-out;
+    }
+
+    .mobile-menu-nav.show {
+        transform: translate3d(0, 0, 0); 
+    }
+
+    .mobile-menu .nav-item {
+        transform: translate3d(600px, 0, 0);
+        transition: all 0.5s ease-out; }
+    .mobile-menu .nav-item.show {
+        transform: translate3d(0, 0, 0); 
+    }
+    .mobile-menu .nav-item.current > a {
+        color: #43c229; 
+    }
+    .mobile-menu .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.5s ease-out; 
+    }
+        
+    .nav-item:nth-child(1) {
+      transition-delay: 0.1s; }
+    
+    .nav-item:nth-child(2) {
+      transition-delay: 0.2s; }
+    
+    .nav-item:nth-child(3) {
+      transition-delay: 0.3s; }
+    
+    .nav-item:nth-child(4) {
+      transition-delay: 0.4s; }
+    .nav-item:nth-child(5) {
+        transition-delay: 0.5s; }
+    
+    .project-details {
+        scroll-snap-align: start;
+    }
+
+    .project-details-2 {
+        scroll-snap-align: center;
+    }
+
+    .project-details-3 {
+        scroll-snap-align: end;
+    }
+
+    .slider {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin-top: 0rem;
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;  
+    }
+
+    .slide {
+        width: 50vw;
+        flex-shrink: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow: auto;
+        scroll-snap-align: start;
+    }
+    .slides > div {
+        scroll-snap-align: start;
+    }
+
+    html {
+        height: 100%;
+        overflow:hidden;
+    }
+}
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+    a.nav-link, .scene {
+        display: none;
+    }
+
+    header {
+        display: inline;
+        visibility: visible;
+    }
+
+    #title-header {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .briefcase-img {
+        display: none;
+    }
+    
+    .project-header {
+        color: #fff;
+        vertical-align: middle;
+        padding: 25px;
+    }
+    
+    .fa-github {
+        display: none;
+    }
+
+    .horizontal-grid {
+        display: none;
+        visibility: hidden;
+    }
+
+    header#mobile-menu-header {
+        display: inline;
+        visibility: visible;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 35px;
+        cursor: pointer;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: #43c229;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn.close {
+        position: fixed;
+        transform: rotate(180deg); 
+    }
+    .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);  
+    }
+    .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; 
+    }
+    .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); 
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 0.9;
+        visibility: hidden;
+    }
+
+    .mobile-menu.show{
+        visibility: visible;
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        margin:0;
+        padding:0;
+        background: rgba(57, 62, 70, 0.9) ;
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        transition: all 0.5s ease-out;
+    }
+
+    .mobile-menu-nav.show {
+        transform: translate3d(0, 0, 0); 
+    }
+
+    .mobile-menu .nav-item {
+        transform: translate3d(600px, 0, 0);
+        transition: all 0.5s ease-out; }
+    .mobile-menu .nav-item.show {
+        transform: translate3d(0, 0, 0); 
+    }
+    .mobile-menu .nav-item.current > a {
+        color: #43c229; 
+    }
+    .mobile-menu .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.5s ease-out; 
+    }
+        
+    .nav-item:nth-child(1) {
+      transition-delay: 0.1s; }
+    
+    .nav-item:nth-child(2) {
+      transition-delay: 0.2s; }
+    
+    .nav-item:nth-child(3) {
+      transition-delay: 0.3s; }
+    
+    .nav-item:nth-child(4) {
+      transition-delay: 0.4s; }
+    .nav-item:nth-child(5) {
+        transition-delay: 0.5s; }
+    
+    .project-details {
+        scroll-snap-align: start;
+    }
+
+    .project-details-2 {
+        scroll-snap-align: center;
+    }
+
+    .project-details-3 {
+        scroll-snap-align: end;
+    }
+
+    .slider {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin-top: 0rem;
+        margin-left: 3.5rem;
+        margin-right: 3.5rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;  
+    }
+
+    .slide {
+        width: 50vw;
+        flex-shrink: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow: auto;
+        scroll-snap-align: start;
+    }
+    .slides > div {
+        scroll-snap-align: start;
+    }
+
+    html {
+        height: 100%;
+        overflow:hidden;
+    }
+}
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+    *{margin:0;}
+    a.nav-link, .scene {
+        display: none;
+    }
+
+    header {
+        display: inline;
+        visibility: visible;
+    }
+
+    #title-header {
+        width: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .briefcase-img {
+        display: none;
+    }
+    
+    .project-header {
+        color: #fff;
+        vertical-align: middle;
+        padding: 25px;
+    }
+    
+    .fa-github {
+        display: none;
+    }
+
+    .horizontal-grid {
+        display: none;
+        visibility: hidden;
+    }
+
+    header#mobile-menu-header {
+        display: inline;
+        visibility: visible;
+    }
+
+    .menu-btn {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        right: 35px;
+        top: 35px;
+        cursor: pointer;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn .btn-line {
+        width: 28px;
+        height: 3px;
+        margin: 0 0 5px 0;
+        background: #43c229;
+        transition: all 0.5s ease-out; 
+    }
+    .menu-btn.close {
+        position: fixed;
+        transform: rotate(180deg); 
+    }
+    .menu-btn.close .btn-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);  
+    }
+    .menu-btn.close .btn-line:nth-child(2) {
+        opacity: 0; 
+    }
+    .menu-btn.close .btn-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px); 
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        opacity: 0.9;
+        visibility: hidden;
+    }
+
+    .mobile-menu.show{
+        visibility: visible;
+    }
+
+    .mobile-menu-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        margin:0;
+        padding:0;
+        background: rgba(57, 62, 70, 0.9) ;
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        transition: all 0.5s ease-out;
+    }
+
+    .mobile-menu-nav.show {
+        transform: translate3d(0, 0, 0); 
+    }
+
+    .mobile-menu .nav-item {
+        transform: translate3d(600px, 0, 0);
+        transition: all 0.5s ease-out; }
+    .mobile-menu .nav-item.show {
+        transform: translate3d(0, 0, 0); 
+    }
+    .mobile-menu .nav-item.current > a {
+        color: #43c229; 
+    }
+    .mobile-menu .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 15px;
+        text-transform: uppercase;
+        padding: 2rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.5s ease-out; 
+    }
+        
+    .nav-item:nth-child(1) {
+      transition-delay: 0.1s; }
+    
+    .nav-item:nth-child(2) {
+      transition-delay: 0.2s; }
+    
+    .nav-item:nth-child(3) {
+      transition-delay: 0.3s; }
+    
+    .nav-item:nth-child(4) {
+      transition-delay: 0.4s; }
+    .nav-item:nth-child(5) {
+        transition-delay: 0.5s; }
+    
+    .project-details {
+        scroll-snap-align: start;
+        margin-left: 1rem  !important;
+        margin-right: 1rem  !important;
+    }
+
+    .project-details-2 {
+        scroll-snap-align: center;
+        margin-left: 1rem  !important;
+        margin-right: 1rem  !important;
+    }
+
+    .project-details-3 {
+        scroll-snap-align: end;
+        margin-left: 1rem  !important;
+        margin-right: 1rem  !important;
+    }
+
+    .slider {
+        width: auto;
+        height: auto;
+        display: flex;
+        margin-top: 1.5vmin;
+        margin-left: 3.5rem !important;
+        margin-right: 3.5rem !important;
+        padding-left: auto !important;
+        padding-right: auto !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;  
+    }
+
+    .slide {
+        width: 50vw;
+        flex-shrink: 0;
+        height: 100%;
+        scroll-behavior: smooth;
+        overflow: auto;
+        scroll-snap-align: start;
+    }
+    .slides > div {
+        scroll-snap-align: start;
+    }
+
+    html {
+        height: 100%;
+        overflow:hidden;
+    }
+}
