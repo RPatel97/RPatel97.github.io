@@ -21,37 +21,54 @@ function main() {
             .sort();
 
         const seen = new Map();
-        for (const file of files) {
+
+        files.forEach(file => {
             const ext = path.extname(file).toLowerCase();
-            const base = file.slice(0, -ext.length);
-            if (seen.has(base)) continue;
+            const baseName = file.slice(0, -ext.length);
+            const webpFile = baseName + '.webp';
+            const webpPath = path.join(folderPath, webpFile);
+            const hasWebP = fs.existsSync(webpPath);
 
-            // Prefer WebP full image
-            const webpFull = path.join(folderPath, base + '.webp');
-            const finalFile = fs.existsSync(webpFull) ? base + '.webp' : file;
+            if (seen.has(baseName)) return;
 
-            // Prefer WebP thumb
-            const thumbFile = base + '.webp';
-            const thumbFull = path.join(thumbPath, thumbFile);
-            const hasThumb = fs.existsSync(thumbFull);
+            const finalFile = hasWebP ? webpFile : file;
+            const relativePath = `images/${folder}/${finalFile}`;
 
-            seen.set(base, {
+            seen.set(baseName, {
                 name: finalFile,
-                url: enc(`images/${folder}/${finalFile}`),
-                thumb: hasThumb ? enc(`images/${folder}/thumbs/${thumbFile}`) : enc(`images/${folder}/${finalFile}`),
+                url: encodeUrl(relativePath),
                 folder: folder
             });
-        }
+        });
 
-        result[folder] = [...seen.values()];
-    }
+        seen.forEach(entry => {
+            if (result[folder]) {
+                result[folder].push(entry);
+            } else {
+                if (!result[folder]) result[folder] = [];
+                result[folder].push(entry);
+            }
+        });
 
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2) + '\n');
-    const total = Object.values(result).reduce((s, a) => s + a.length, 0);
-    console.log(`✅ images.json updated — ${total} images`);
-    for (const [f, imgs] of Object.entries(result)) {
-        if (imgs.length) console.log(`   • ${f}: ${imgs.length} (${imgs.filter(i=>i.thumb!==i.url).length} with thumbs)`);
+    });
+
+return result;
+}
+
+function main() {
+    const data = scanImages();
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(data, null, 4) + '\n');
+
+    const total = Object.values(data).reduce((sum, arr) => sum + arr.length, 0);
+    const webpCount = Object.values(data).flat().filter(img => img.name.endsWith('.webp')).length;
+
+    console.log(`✅ images.json updated — ${total} images across ${Object.keys(data).length} folders.`);
+    if (webpCount > 0) {
+        console.log(`   🗜️  ${webpCount} image(s) using compressed WebP format`);
     }
+    Object.entries(data).forEach(([folder, imgs]) => {
+        if (imgs.length) console.log(`   • ${folder}: ${imgs.length} image(s)`);
+    });
 }
 
 main();

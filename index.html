@@ -315,11 +315,10 @@
             display: block;
             transition: transform 0.4s ease, filter 0.4s ease, opacity 0.4s ease;
             filter: brightness(0.92);
-            opacity: 0;
-        }
-        
-        .photo-card img.loaded {
-            opacity: 1;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
         }
         
         .photo-card:hover img {
@@ -423,6 +422,7 @@
             object-fit: contain;
             display: block;
             user-select: none;
+            -webkit-user-select: none;
             -webkit-user-drag: none;
             pointer-events: none;
         }
@@ -1020,28 +1020,7 @@
                 // Use native lazy loading + IntersectionObserver for max compatibility
                 var actions = '<button class="card-btn" data-view="' + i + '">View</button>';
                 if (isAdmin) actions += '<button class="card-btn danger" data-del="' + p.name + '" data-folder="' + p.folder + '">Remove</button>';
-
-                var img = document.createElement('img');
-                img.alt = p.name;
-                img.draggable = false;
-                img.dataset.src = p.thumb || p.url;
-                // Set a natural aspect ratio placeholder so masonry reserves space
-                img.style.minHeight = '180px';
-
-                img.addEventListener('load', function() {
-                    img.classList.add('loaded');
-                    card.classList.remove('skeleton');
-                    img.style.minHeight = '';
-                }, {
-                    once: true
-                });
-
-                var overlay = document.createElement('div');
-                overlay.className = 'photo-overlay';
-                overlay.innerHTML = '<div class="card-actions">' + actions + '</div>';
-
-                card.appendChild(img);
-                card.appendChild(overlay);
+                card.innerHTML = '<img src="' + p.url + '" alt="' + p.name + '" draggable="false"><div class="photo-overlay"><div class="card-actions">' + actions + '</div></div>';
                 masonry.appendChild(card);
 
                 // Register with observer for lazy loading
@@ -1191,8 +1170,11 @@
             }
         });
 
+        // ---- Right-click protection on images ----
         document.addEventListener('contextmenu', function(e) {
-            if (e.target.tagName === 'IMG') e.preventDefault();
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
         });
 
         loadAll();
