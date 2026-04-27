@@ -316,6 +316,10 @@
             display: block;
             transition: transform 0.4s ease, filter 0.4s ease;
             filter: brightness(0.92);
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
         }
         
         .photo-card:hover img {
@@ -394,6 +398,10 @@
             max-height: 85vh;
             object-fit: contain;
             display: block;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
         }
         
         .lb-caption {
@@ -658,7 +666,7 @@
     <div id="lightbox">
         <button class="lb-close" id="lbClose">✕</button>
         <button class="lb-nav" id="lb-prev">‹</button>
-        <img id="lbImg" src="" alt="">
+        <img id="lbImg" src="" alt="" draggable="false">
         <button class="lb-nav" id="lb-next">›</button>
         <div class="lb-caption" id="lbCaption"></div>
     </div>
@@ -1015,7 +1023,7 @@
                 card.className = 'photo-card';
                 var actions = '<button class="card-btn" data-view="' + i + '">View</button>';
                 if (isAdmin) actions += '<button class="card-btn danger" data-del="' + p.name + '" data-folder="' + p.folder + '">Remove</button>';
-                card.innerHTML = '<img src="' + p.url + '" alt="' + p.name + '"><div class="photo-overlay"><div class="card-actions">' + actions + '</div></div>';
+                card.innerHTML = '<img src="' + p.url + '" alt="' + p.name + '" draggable="false"><div class="photo-overlay"><div class="card-actions">' + actions + '</div></div>';
                 masonry.appendChild(card);
             });
             masonry.querySelectorAll('[data-view]').forEach(function(btn) {
@@ -1158,6 +1166,13 @@
             if (e.key === 'ArrowRight') {
                 lbIndex = (lbIndex + 1) % lbPhotos.length;
                 updateLightbox();
+            }
+        });
+
+        // ---- Right-click protection on images ----
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
             }
         });
 
