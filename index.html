@@ -782,13 +782,33 @@
             var status = document.getElementById('uploadStatus');
             status.className = 'upload-status';
             status.textContent = 'Uploading ' + file.name + '…';
-            ghFetch('contents/images/' + folder + '/' + file.name, {
-                    method: 'PUT',
-                    body: JSON.stringify({
+            var path = 'images/' + folder + '/' + file.name;
+            // First, check if file exists to get SHA
+            ghFetch('contents/' + path)
+                .then(function(r) {
+                    if (r.ok) {
+                        return r.json();
+                    } else if (r.status === 404) {
+                        // File doesn't exist, no SHA needed
+                        return null;
+                    } else {
+                        throw new Error('Failed to check file existence');
+                    }
+                })
+                .then(function(existingFile) {
+                    var body = {
                         message: 'Add ' + folder + '/' + file.name,
                         content: base64.split(',')[1]
-                    })
-                }).then(function(r) {
+                    };
+                    if (existingFile && existingFile.sha) {
+                        body.sha = existingFile.sha;
+                    }
+                    return ghFetch('contents/' + path, {
+                        method: 'PUT',
+                        body: JSON.stringify(body)
+                    });
+                })
+                .then(function(r) {
                     return r.json();
                 })
                 .then(function(data) {
