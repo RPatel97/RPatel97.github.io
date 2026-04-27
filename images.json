@@ -1,10 +1,35 @@
 {
     "featured": [
-        { "name": "Cali-00455.jpg", "url": "images/featured/Cali-00455.jpg", "folder": "featured" },
-        { "name": "niagaraedits-04339.jpg", "url": "images/featured/niagaraedits-04339.jpg", "folder": "featured" },
-        { "name": "Vanc_Oreg-08211.jpg", "url": "images/featured/Vanc_Oreg-08211.jpg", "folder": "featured" },
-        { "name": "vegas2-02676.jpg", "url": "images/featured/vegas2-02676.jpg", "folder": "featured" },
-        { "name": "wildlife-04043.jpg", "url": "images/featured/wildlife-04043.jpg", "folder": "featured" }
+        {
+            "name": "Cali-00455.jpg",
+            "url": "images/featured/Cali-00455.jpg",
+            "folder": "featured"
+        },
+        {
+            "name": "Vanc_Oreg-08211.jpg",
+            "url": "images/featured/Vanc_Oreg-08211.jpg",
+            "folder": "featured"
+        },
+        {
+            "name": "mtl_edits-44De.jpg",
+            "url": "images/featured/mtl_edits-44De.jpg",
+            "folder": "featured"
+        },
+        {
+            "name": "niagaraedits-04339.jpg",
+            "url": "images/featured/niagaraedits-04339.jpg",
+            "folder": "featured"
+        },
+        {
+            "name": "vegas2-02676.jpg",
+            "url": "images/featured/vegas2-02676.jpg",
+            "folder": "featured"
+        },
+        {
+            "name": "wildlife-04043.jpg",
+            "url": "images/featured/wildlife-04043.jpg",
+            "folder": "featured"
+        }
     ],
     "landscapes": [],
     "wildlife": [],
