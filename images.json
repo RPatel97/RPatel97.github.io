@@ -1,0 +1,13 @@
+{
+    "featured": [
+        { "name": "Cali-00455.jpg", "url": "images/featured/Cali-00455.jpg", "folder": "featured" },
+        { "name": "lynde (4 of 19).jpg", "url": "images/featured/lynde%20(4%20of%2019).jpg", "folder": "featured" },
+        { "name": "niagaraedits-04339.jpg", "url": "images/featured/niagaraedits-04339.jpg", "folder": "featured" },
+        { "name": "Vanc_Oreg-08211.jpg", "url": "images/featured/Vanc_Oreg-08211.jpg", "folder": "featured" },
+        { "name": "vegas2-02676.jpg", "url": "images/featured/vegas2-02676.jpg", "folder": "featured" },
+        { "name": "wildlife-04043.jpg", "url": "images/featured/wildlife-04043.jpg", "folder": "featured" }
+    ],
+    "landscapes": [],
+    "wildlife": [],
+    "portraits": []
+}
