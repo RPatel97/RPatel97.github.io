@@ -1,0 +1,38 @@
+name: Update Images JSON
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - 'images/**'
+
+jobs:
+  update-images-json:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run update-images.js
+        run: node update-images.js
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add images.json
+          if git diff --cached --quiet; then
+            echo "No changes to images.json"
+          else
+            git commit -m "Auto-update images.json"
+            git push
+          fi
+
