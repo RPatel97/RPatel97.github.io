@@ -27,5 +27,7 @@ async function main() {
     console.log('\nDone! Now run: node update-images.js');
 }
 
-main().catch(err => { console.error(err);
-    process.exit(1); });
+main().catch(err => {
+    console.error(err);
+    process.exit(1);
+});
