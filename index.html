@@ -48,6 +48,38 @@
             padding: 1.4rem 3rem;
             background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
         }
+        /* Hamburger */
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            z-index: 101;
+        }
+        
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 1.5px;
+            background: var(--accent);
+            transition: all 0.3s;
+        }
+        
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(6.5px) rotate(45deg);
+        }
+        
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-6.5px) rotate(-45deg);
+        }
         
         @media (max-width: 600px) {
             nav {
@@ -56,8 +88,26 @@
             .nav-name {
                 font-size: 0.85rem;
             }
+            .hamburger {
+                display: flex;
+            }
             .nav-links {
-                gap: 1.2rem;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                gap: 1.8rem;
+                position: fixed;
+                inset: 0;
+                background: rgba(10, 10, 10, 0.97);
+                justify-content: center;
+                z-index: 100;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-links a {
+                font-size: 1rem;
+                letter-spacing: 0.2em;
             }
             .hero-title {
                 font-size: clamp(2rem, 10vw, 3.5rem);
@@ -163,7 +213,7 @@
             font-size: 0.9rem;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            color: var(--muted);
+            color: var(--accent);
             margin-bottom: 2.5rem;
             position: relative;
             z-index: 2;
@@ -777,7 +827,10 @@
 
     <nav>
         <div class="nav-name">Rishabh Patel</div>
-        <div class="nav-links">
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+        <div class="nav-links" id="navLinks">
             <a href="#gallery">Work</a>
             <a href="#about">About Me</a>
             <a href="#contact">Contact</a>
@@ -904,6 +957,20 @@
             holdTimer = null;
         var carouselIndex = 0,
             carouselTimer = null;
+
+        // ---- Hamburger menu ----
+        var hamburger = document.getElementById('hamburger');
+        var navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
 
         // ---- Intersection Observer for lazy loading ----
         var imgObserver = new IntersectionObserver(function(entries) {
