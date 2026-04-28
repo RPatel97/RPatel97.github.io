@@ -49,6 +49,67 @@
             background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
         }
         
+        @media (max-width: 600px) {
+            nav {
+                padding: 1rem 1.25rem;
+            }
+            .nav-name {
+                font-size: 0.85rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .hero-title {
+                font-size: clamp(2rem, 10vw, 3.5rem);
+            }
+            .hero-sub {
+                font-size: 0.75rem;
+                letter-spacing: 0.15em;
+            }
+            .hero-cta {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.7rem;
+            }
+            #gallery {
+                padding: 3rem 1rem;
+            }
+            #contact {
+                padding: 3rem 1rem;
+            }
+            .filter-bar {
+                gap: 0.4rem;
+            }
+            .filter-btn {
+                padding: 0.4rem 0.9rem;
+                font-size: 0.65rem;
+            }
+            .overlay-box {
+                min-width: unset;
+                width: 90vw;
+                padding: 1.5rem;
+            }
+            .admin-folders {
+                gap: 0.4rem;
+            }
+            .folder-btn {
+                min-width: unset;
+                font-size: 0.62rem;
+                padding: 0.5rem;
+            }
+            .lb-nav {
+                font-size: 1.5rem;
+                padding: 0.5rem;
+            }
+            .lb-close {
+                top: 1rem;
+                right: 1rem;
+            }
+            .lb-caption {
+                font-size: 0.65rem;
+                bottom: 1rem;
+            }
+        }
+        
         .nav-name {
             font-size: 1rem;
             font-weight: 600;
@@ -297,6 +358,17 @@
         @media (max-width: 500px) {
             .masonry {
                 columns: 1;
+            }
+        }
+        /* Touch-friendly card overlay on mobile — always visible */
+        
+        @media (hover: none) {
+            .photo-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+            }
+            .photo-card img {
+                filter: brightness(0.88);
             }
         }
         /* Photo card with skeleton loading */

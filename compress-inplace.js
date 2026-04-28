@@ -5,7 +5,7 @@ const sharp = require('sharp');
 const IMAGES_DIR = path.join(__dirname, 'images');
 const FOLDERS = ['landscapes', 'wildlife', 'portraits', 'featured'];
 const IMG_EXT = /\.(jpg|jpeg|png|gif|webp)$/i;
-const QUALITY = 80;
+const QUALITY = 65;
 
 async function main() {
     let total = 0,
