@@ -3,90 +3,55 @@ const path = require('path');
 
 const IMAGES_DIR = path.join(__dirname, 'images');
 const OUTPUT_FILE = path.join(__dirname, 'images.json');
-const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.webp'];
+const FOLDERS = ['featured', 'landscapes', 'wildlife', 'portraits'];
+const IMG_EXT = /\.(jpg|jpeg|png|gif|webp)$/i;
 
-function isImage(fileName) {
-    const ext = path.extname(fileName).toLowerCase();
-    return IMAGE_EXTENSIONS.includes(ext);
-}
+function enc(p) { return p.split('/').map(encodeURIComponent).join('/'); }
 
-function encodeUrl(filePath) {
-    // Encode each path segment separately so slashes stay intact
-    return filePath.split('/').map(encodeURIComponent).join('/');
-}
+function main() {
+    const result = {};
 
-function scanImages() {
-    const result = {
-        featured: [],
-        landscapes: [],
-        wildlife: [],
-        portraits: []
-    };
-
-    if (!fs.existsSync(IMAGES_DIR)) {
-        console.error('images/ directory not found');
-        process.exit(1);
-    }
-
-    const folders = fs.readdirSync(IMAGES_DIR, { withFileTypes: true })
-        .filter(d => d.isDirectory())
-        .map(d => d.name);
-
-    folders.forEach(folder => {
+    for (const folder of FOLDERS) {
         const folderPath = path.join(IMAGES_DIR, folder);
+        const thumbPath = path.join(folderPath, 'thumbs');
+        if (!fs.existsSync(folderPath)) { result[folder] = []; continue; }
+
         const files = fs.readdirSync(folderPath)
-            .filter(isImage)
+            .filter(f => IMG_EXT.test(f))
             .sort();
 
         const seen = new Map();
-
-        files.forEach(file => {
+        for (const file of files) {
             const ext = path.extname(file).toLowerCase();
-            const baseName = file.slice(0, -ext.length);
-            const webpFile = baseName + '.webp';
-            const webpPath = path.join(folderPath, webpFile);
-            const hasWebP = fs.existsSync(webpPath);
+            const base = file.slice(0, -ext.length);
+            if (seen.has(base)) continue;
 
-            if (seen.has(baseName)) return;
+            // Prefer WebP full image
+            const webpFull = path.join(folderPath, base + '.webp');
+            const finalFile = fs.existsSync(webpFull) ? base + '.webp' : file;
 
-            const finalFile = hasWebP ? webpFile : file;
-            const relativePath = `images/${folder}/${finalFile}`;
+            // Prefer WebP thumb
+            const thumbFile = base + '.webp';
+            const thumbFull = path.join(thumbPath, thumbFile);
+            const hasThumb = fs.existsSync(thumbFull);
 
-            seen.set(baseName, {
+            seen.set(base, {
                 name: finalFile,
-                url: encodeUrl(relativePath),
+                url: enc(`images/${folder}/${finalFile}`),
+                thumb: hasThumb ? enc(`images/${folder}/thumbs/${thumbFile}`) : enc(`images/${folder}/${finalFile}`),
                 folder: folder
             });
-        });
+        }
 
-        seen.forEach(entry => {
-            if (result[folder]) {
-                result[folder].push(entry);
-            } else {
-                if (!result[folder]) result[folder] = [];
-                result[folder].push(entry);
-            }
-        });
-
-    });
-
-    return result;
-}
-
-function main() {
-    const data = scanImages();
-    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(data, null, 4) + '\n');
-
-    const total = Object.values(data).reduce((sum, arr) => sum + arr.length, 0);
-    const webpCount = Object.values(data).flat().filter(img => img.name.endsWith('.webp')).length;
-
-    console.log(`✅ images.json updated — ${total} images across ${Object.keys(data).length} folders.`);
-    if (webpCount > 0) {
-        console.log(`   🗜️  ${webpCount} image(s) using compressed WebP format`);
+        result[folder] = [...seen.values()];
     }
-    Object.entries(data).forEach(([folder, imgs]) => {
-        if (imgs.length) console.log(`   • ${folder}: ${imgs.length} image(s)`);
-    });
+
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2) + '\n');
+    const total = Object.values(result).reduce((s, a) => s + a.length, 0);
+    console.log(`✅ images.json updated — ${total} images`);
+    for (const [f, imgs] of Object.entries(result)) {
+        if (imgs.length) console.log(`   • ${f}: ${imgs.length} (${imgs.filter(i=>i.thumb!==i.url).length} with thumbs)`);
+    }
 }
 
 main();
