@@ -135,6 +135,18 @@
                 font-size: 1.5rem;
                 padding: 0.5rem;
             }
+            .lb-watermark {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 45%;
+                opacity: 0.30;
+                pointer-events: none;
+                user-select: none;
+                -webkit-user-drag: none;
+                display: block;
+            }
             .lb-close {
                 top: 1rem;
                 right: 1rem;
@@ -581,22 +593,6 @@
             user-select: none;
             -webkit-user-drag: none;
             pointer-events: none;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .lb-watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 45%;
-            opacity: 0.30;
-            pointer-events: none;
-            user-select: none;
-            -webkit-user-drag: none;
-            display: block;
-            z-index: 2;
         }
         
         .lb-caption {
