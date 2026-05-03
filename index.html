@@ -140,11 +140,12 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 45%;
+                width: min(280px, 45%);
                 opacity: 0.30;
                 pointer-events: none;
                 user-select: none;
                 -webkit-user-drag: none;
+                z-index: 201;
             }
             .lb-close {
                 top: 1rem;
@@ -175,7 +176,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            height: 48px;
+            height: 100px;
             cursor: pointer;
             opacity: 0.92;
             transition: opacity 0.2s;
@@ -579,9 +580,9 @@
         
         .lb-img-wrap {
             position: relative;
-            max-width: 90vw;
-            max-height: 85vh;
-            display: flex;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
         }
         
         #lightbox img {
