@@ -150,7 +150,7 @@
                 padding: 3rem 1rem;
             }
             .nav-logo {
-                display: none;
+                height: 34px;
             }
         }
         
@@ -314,55 +314,6 @@
         
         .carousel-dot.active {
             background: #fff;
-        }
-        /* Pricing Carousel */
-        
-        .pricing-carousel {
-            position: relative;
-            overflow: hidden;
-            margin-top: 3rem;
-        }
-        
-        .pricing-carousel-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 0.6s ease;
-        }
-        
-        .pricing-carousel-slide.active {
-            opacity: 1;
-        }
-        
-        .pricing-dots {
-            display: none;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 1.5rem;
-        }
-        
-        .pricing-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--muted);
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .pricing-dot.active {
-            background: var(--accent);
-            border-color: var(--accent);
-        }
-        
-        @media (max-width: 600px) {
-            #pricingGrid {
-                display: none;
-            }
-            .pricing-dots {
-                display: flex;
-            }
         }
         
         #gallery {
@@ -1045,38 +996,35 @@
 
     <section id="pricing">
         <p class="section-label">Pricing</p>
-        <div class="pricing-carousel" id="pricingCarousel">
-            <div class="pricing-grid" id="pricingGrid">
-                <div class="pricing-card">
-                    <p class="pricing-tier">Portrait Session</p>
-                    <div class="pricing-price">$300<span> / session</span></div>
-                    <p class="pricing-desc">A focused one-on-one session to capture your personality, story, and presence — in natural light or a location of your choice.</p>
-                    <ul class="pricing-includes">
-                        <li>Up to 2 hours on location</li>
-                        <li>1 location of your choice</li>
-                        <li>30+ edited digital images</li>
-                        <li>Private online gallery delivery</li>
-                        <li>Personal use licence included</li>
-                    </ul>
-                    <a href="#contact" class="pricing-cta">Book a Session</a>
-                </div>
-                <div class="pricing-card">
-                    <p class="pricing-tier">Full Day Shoot</p>
-                    <div class="pricing-price">$850<span> / day</span></div>
-                    <p class="pricing-desc">A full day in the field — ideal for chasing golden hour across multiple locations, extended wildlife outings, or a deeper portrait story.</p>
-                    <ul class="pricing-includes">
-                        <li>Up to 8 hours on location</li>
-                        <li>Multiple locations welcome</li>
-                        <li>100+ edited digital images</li>
-                        <li>Private online gallery delivery</li>
-                        <li>Personal use licence included</li>
-                        <li>Travel within 100 km included</li>
-                    </ul>
-                    <a href="#contact" class="pricing-cta">Book a Full Day</a>
-                </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <p class="pricing-tier">Portrait Session</p>
+                <div class="pricing-price">$300<span> / session</span></div>
+                <p class="pricing-desc">A focused one-on-one session to capture your personality, story, and presence — in natural light or a location of your choice.</p>
+                <ul class="pricing-includes">
+                    <li>Up to 2 hours on location</li>
+                    <li>1 location of your choice</li>
+                    <li>30+ edited digital images</li>
+                    <li>Private online gallery delivery</li>
+                    <li>Personal use licence included</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">Book a Session</a>
+            </div>
+            <div class="pricing-card">
+                <p class="pricing-tier">Full Day Shoot</p>
+                <div class="pricing-price">$850<span> / day</span></div>
+                <p class="pricing-desc">A full day in the field — ideal for chasing golden hour across multiple locations, extended wildlife outings, or a deeper portrait story.</p>
+                <ul class="pricing-includes">
+                    <li>Up to 8 hours on location</li>
+                    <li>Multiple locations welcome</li>
+                    <li>100+ edited digital images</li>
+                    <li>Private online gallery delivery</li>
+                    <li>Personal use licence included</li>
+                    <li>Travel within 100 km included</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">Book a Full Day</a>
             </div>
         </div>
-        <div class="pricing-dots" id="pricingDots"></div>
         <p class="pricing-note">All prices in CAD &nbsp;·&nbsp; Custom packages available on request &nbsp;·&nbsp; Travel beyond 100 km quoted separately</p>
     </section>
 
@@ -1348,139 +1296,6 @@
             }
             slides[i].classList.add('active');
             dots[i].classList.add('active');
-        }
-
-        // Pricing Carousel JS
-        const pricingData = [{
-            tier: 'Portrait Session',
-            price: '$300<span> / session</span>',
-            desc: 'A focused one-on-one session to capture your personality, story, and presence — in natural light or a location of your choice.',
-            includes: [
-                'Up to 2 hours on location',
-                '1 location of your choice',
-                '30+ edited digital images',
-                'Private online gallery delivery',
-                'Personal use licence included'
-            ],
-            cta: 'Book a Session'
-        }, {
-            tier: 'Full Day Shoot',
-            price: '$850<span> / day</span>',
-            desc: 'A full day in the field — ideal for chasing golden hour across multiple locations, extended wildlife outings, or a deeper portrait story.',
-            includes: [
-                'Up to 8 hours on location',
-                'Multiple locations welcome',
-                '100+ edited digital images',
-                'Private online gallery delivery',
-                'Personal use licence included',
-                'Travel within 100 km included'
-            ],
-            cta: 'Book a Full Day'
-        }];
-
-        let pricingIndex = 0;
-        let pricingStartX = 0;
-        let pricingIsDragging = false;
-
-        function initPricingCarousel() {
-            const carousel = document.getElementById('pricingCarousel');
-            const grid = document.getElementById('pricingGrid');
-            const dotsContainer = document.getElementById('pricingDots');
-
-            // Clear existing slides except grid
-            Array.from(carousel.children).forEach(child => {
-                if (child.id !== 'pricingGrid') carousel.removeChild(child);
-            });
-
-            dotsContainer.innerHTML = '';
-
-            pricingData.forEach((data, i) => {
-                        // Create slide
-                        const slide = document.createElement('div');
-                        slide.className = `pricing-carousel-slide ${i === 0 ? 'active' : ''}`;
-                        slide.innerHTML = `
-              <div class="pricing-card">
-                <p class="pricing-tier">${data.tier}</p>
-                <div class="pricing-price">${data.price}</div>
-                <p class="pricing-desc">${data.desc}</p>
-                <ul class="pricing-includes">
-                  ${data.includes.map(item => `<li>${item}</li>`).join('')}
-                </ul>
-                <a href="#contact" class="pricing-cta">${data.cta}</a>
-              </div>
-            `;
-            carousel.appendChild(slide);
-            
-            // Create dot
-            const dot = document.createElement('button');
-            dot.className = `pricing-dot ${i === 0 ? 'active' : ''}`;
-            dot.addEventListener('click', () => goToPricingSlide(i));
-            dotsContainer.appendChild(dot);
-          });
-          
-          // Touch/swipe support
-          const slidesContainer = carousel;
-          slidesContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
-          slidesContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
-          
-          // Keyboard support
-          document.addEventListener('keydown', handlePricingKeydown);
-        }
-
-        function goToPricingSlide(i) {
-          const slides = document.querySelectorAll('.pricing-carousel-slide');
-          const dots = document.querySelectorAll('.pricing-dot');
-          
-          if (!slides.length) return;
-          
-          slides[pricingIndex].classList.remove('active');
-          dots[pricingIndex].classList.remove('active');
-          
-          pricingIndex = i;
-          slides[i].classList.add('active');
-          dots[i].classList.add('active');
-        }
-
-        function handleTouchStart(e) {
-          pricingStartX = e.touches[0].clientX;
-          pricingIsDragging = true;
-        }
-
-        function handleTouchEnd(e) {
-          if (!pricingIsDragging) return;
-          pricingIsDragging = false;
-          
-          const endX = e.changedTouches[0].clientX;
-          const diffX = pricingStartX - endX;
-          
-          if (Math.abs(diffX) > 50) { // Swipe threshold
-            if (diffX > 0) {
-              // Swipe left - next
-              goToPricingSlide((pricingIndex + 1) % pricingData.length);
-            } else {
-              // Swipe right - prev
-              goToPricingSlide((pricingIndex - 1 + pricingData.length) % pricingData.length);
-            }
-          }
-        }
-
-        function handlePricingKeydown(e) {
-          if (!window.matchMedia('(max-width: 600px)').matches) return;
-          
-          const pricingSection = document.getElementById('pricing');
-          const rect = pricingSection.getBoundingClientRect();
-          if (e.key === 'ArrowLeft' && rect.top < window.innerHeight && rect.bottom > 0) {
-            goToPricingSlide((pricingIndex - 1 + pricingData.length) % pricingData.length);
-          } else if (e.key === 'ArrowRight' && rect.top < window.innerHeight && rect.bottom > 0) {
-            goToPricingSlide((pricingIndex + 1) % pricingData.length);
-          }
-        }
-
-        // Initialize pricing carousel on load
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', initPricingCarousel);
-        } else {
-          initPricingCarousel();
         }
 
         document.querySelectorAll('.filter-btn').forEach(function(btn) {
