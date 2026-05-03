@@ -48,7 +48,6 @@
             padding: 1.4rem 3rem;
             background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), transparent);
         }
-        /* Hamburger */
         
         .hamburger {
             display: none;
@@ -143,6 +142,12 @@
             .lb-caption {
                 font-size: 0.65rem;
                 bottom: 1rem;
+            }
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            #pricing {
+                padding: 3rem 1rem;
             }
         }
         
@@ -413,7 +418,6 @@
                 columns: 1;
             }
         }
-        /* Touch-friendly card overlay on mobile — always visible */
         
         @media (hover: none) {
             .photo-overlay {
@@ -424,7 +428,6 @@
                 filter: brightness(0.88);
             }
         }
-        /* Photo card with skeleton loading */
         
         .photo-card {
             break-inside: avoid;
@@ -494,7 +497,6 @@
             background: rgba(200, 60, 60, 0.4);
             border-color: rgba(200, 60, 60, 0.4);
         }
-        /* Skeleton shimmer */
         
         .skeleton {
             background: var(--bg3);
@@ -593,10 +595,6 @@
             transition: color 0.2s;
         }
         
-        .lb-nav:hover {
-            color: var(--accent);
-        }
-        
         #lb-prev {
             left: 1rem;
         }
@@ -604,6 +602,119 @@
         #lb-next {
             right: 1rem;
         }
+        /* ---- Pricing ---- */
+        
+        #pricing {
+            border-top: 1px solid var(--border);
+            padding: 6rem 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .pricing-card {
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            background: var(--bg2);
+            transition: border-color 0.3s;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            border-color: #444;
+        }
+        
+        .pricing-tier {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1.2rem;
+        }
+        
+        .pricing-price {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            color: var(--accent);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.3rem;
+        }
+        
+        .pricing-price span {
+            font-size: 1rem;
+            color: var(--muted);
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+        
+        .pricing-desc {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .pricing-includes {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .pricing-includes li {
+            font-size: 0.8rem;
+            color: var(--text);
+            letter-spacing: 0.03em;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .pricing-includes li::before {
+            content: '—';
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+        
+        .pricing-cta {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.25s;
+            cursor: pointer;
+            background: transparent;
+            font-family: inherit;
+        }
+        
+        .pricing-cta:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .pricing-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+        }
+        /* ---- About ---- */
         
         #contact {
             max-width: 560px;
@@ -673,7 +784,6 @@
             border-color: var(--accent);
             color: var(--accent);
         }
-        /* About */
         
         #about {
             border-top: 1px solid var(--border);
@@ -831,10 +941,11 @@
     <nav>
         <div class="nav-name">Rishabh Patel</div>
         <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+            <span></span><span></span><span></span>
+        </button>
         <div class="nav-links" id="navLinks">
             <a href="#gallery">Work</a>
+            <a href="#pricing">Pricing</a>
             <a href="#about">About Me</a>
             <a href="#contact">Contact</a>
         </div>
@@ -883,6 +994,41 @@
         <div class="lb-caption" id="lbCaption"></div>
     </div>
 
+    <!-- PRICING -->
+    <section id="pricing">
+        <p class="section-label">Pricing</p>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <p class="pricing-tier">Portrait Session</p>
+                <div class="pricing-price">$300<span> / session</span></div>
+                <p class="pricing-desc">A focused one-on-one session to capture your personality, story, and presence — in natural light or a location of your choice.</p>
+                <ul class="pricing-includes">
+                    <li>Up to 2 hours on location</li>
+                    <li>1 location of your choice</li>
+                    <li>30+ edited digital images</li>
+                    <li>Private online gallery delivery</li>
+                    <li>Personal use licence included</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">Book a Session</a>
+            </div>
+            <div class="pricing-card">
+                <p class="pricing-tier">Full Day Shoot</p>
+                <div class="pricing-price">$850<span> / day</span></div>
+                <p class="pricing-desc">A full day in the field — ideal for chasing golden hour across multiple locations, extended wildlife outings, or a deeper portrait story.</p>
+                <ul class="pricing-includes">
+                    <li>Up to 8 hours on location</li>
+                    <li>Multiple locations welcome</li>
+                    <li>100+ edited digital images</li>
+                    <li>Private online gallery delivery</li>
+                    <li>Personal use licence included</li>
+                    <li>Travel within 100 km included</li>
+                </ul>
+                <a href="#contact" class="pricing-cta">Book a Full Day</a>
+            </div>
+        </div>
+        <p class="pricing-note">All prices in CAD &nbsp;·&nbsp; Custom packages available on request &nbsp;·&nbsp; Travel beyond 100 km quoted separately</p>
+    </section>
+
     <section id="about">
         <div class="about-inner">
             <div class="about-label">
@@ -895,7 +1041,6 @@
                 <p class="about-text">My work spans three worlds: the sweeping stillness of landscapes, the raw intimacy of wildlife, and the quiet complexity of portraits. Whether I'm standing at the edge of a canyon at golden hour, waiting for a bird of prey to take flight,
                     or framing the character in someone's expression — the goal is always the same: to freeze a moment that deserves to last.</p>
                 <p class="about-text">Travel fuels everything. Each destination reshapes how I see — new light, new terrain, new life. The camera is simply how I make sense of it all.</p>
-
             </div>
         </div>
     </section>
@@ -961,7 +1106,6 @@
         var carouselIndex = 0,
             carouselTimer = null;
 
-        // ---- Hamburger menu ----
         var hamburger = document.getElementById('hamburger');
         var navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', function() {
@@ -975,7 +1119,6 @@
             });
         });
 
-        // ---- Intersection Observer for lazy loading ----
         var imgObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (!entry.isIntersecting) return;
@@ -998,9 +1141,8 @@
             });
         }, {
             rootMargin: '200px 0px'
-        }); // start loading 200px before entering viewport
+        });
 
-        // ---- Load images.json only (fast, no GitHub API on page load) ----
         function loadAll() {
             fetch('images.json?v=' + Date.now())
                 .then(function(r) {
@@ -1021,7 +1163,6 @@
                 });
         }
 
-        // ---- GitHub helpers (admin only) ----
         function ghFetch(path, opts) {
             var h = {
                 'Content-Type': 'application/json'
@@ -1111,23 +1252,17 @@
                 });
         }
 
-        // ---- Carousel ----
         function initCarousel() {
             var c = document.getElementById('featuredCarousel');
             var dots = document.getElementById('carouselDots');
             c.innerHTML = '';
             dots.innerHTML = '';
             if (!featuredPhotos.length) return;
-
-            // Preload first carousel image immediately, rest lazily
             featuredPhotos.forEach(function(p, i) {
                 var slide = document.createElement('div');
                 slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
-                if (i === 0) {
-                    slide.style.backgroundImage = 'url(' + p.url + ')';
-                } else {
-                    slide.dataset.bg = p.url; // lazy load non-active slides
-                }
+                if (i === 0) slide.style.backgroundImage = 'url(' + p.url + ')';
+                else slide.dataset.bg = p.url;
                 c.appendChild(slide);
                 var dot = document.createElement('button');
                 dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
@@ -1149,7 +1284,6 @@
             slides[carouselIndex].classList.remove('active');
             dots[carouselIndex].classList.remove('active');
             carouselIndex = i;
-            // Lazy load bg on first view
             if (slides[i].dataset.bg) {
                 slides[i].style.backgroundImage = 'url(' + slides[i].dataset.bg + ')';
                 delete slides[i].dataset.bg;
@@ -1158,7 +1292,6 @@
             dots[i].classList.add('active');
         }
 
-        // ---- Filter ----
         document.querySelectorAll('.filter-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.filter-btn').forEach(function(b) {
@@ -1170,7 +1303,6 @@
             });
         });
 
-        // ---- Admin folder selector ----
         document.querySelectorAll('.folder-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.folder-btn').forEach(function(b) {
@@ -1182,7 +1314,6 @@
             });
         });
 
-        // ---- Upload ----
         var zone = document.getElementById('uploadZone');
         var fileInput = document.getElementById('fileInput');
         zone.addEventListener('click', function() {
@@ -1218,7 +1349,6 @@
             });
         }
 
-        // ---- Render Gallery ----
         function getVisible() {
             if (activeFilter === 'all') return CATEGORIES.reduce(function(a, c) {
                 return a.concat(photos[c]);
@@ -1241,18 +1371,13 @@
             visible.forEach(function(p, i) {
                 var card = document.createElement('div');
                 card.className = 'photo-card skeleton';
-
-                // Use native lazy loading + IntersectionObserver for max compatibility
                 var actions = '<button class="card-btn" data-view="' + i + '">View</button>';
                 if (isAdmin) actions += '<button class="card-btn danger" data-del="' + p.name + '" data-folder="' + p.folder + '">Remove</button>';
-
                 var img = document.createElement('img');
                 img.alt = p.name;
                 img.draggable = false;
                 img.dataset.src = p.thumb || p.url;
-                // Set a natural aspect ratio placeholder so masonry reserves space
                 img.style.minHeight = '180px';
-
                 img.addEventListener('load', function() {
                     img.classList.add('loaded');
                     card.classList.remove('skeleton');
@@ -1260,19 +1385,14 @@
                 }, {
                     once: true
                 });
-
                 var overlay = document.createElement('div');
                 overlay.className = 'photo-overlay';
                 overlay.innerHTML = '<div class="card-actions">' + actions + '</div>';
-
                 card.appendChild(img);
                 card.appendChild(overlay);
                 masonry.appendChild(card);
-
-                // Register with observer for lazy loading
                 imgObserver.observe(img);
             });
-
             masonry.querySelectorAll('[data-view]').forEach(function(btn) {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -1292,7 +1412,6 @@
             });
         }
 
-        // ---- Lightbox ----
         function openLightbox(i) {
             lbIndex = i;
             updateLightbox();
@@ -1304,6 +1423,7 @@
             document.getElementById('lbImg').src = p.url;
             document.getElementById('lbCaption').textContent = p.folder + ' · ' + p.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
         }
+
         document.getElementById('lbClose').addEventListener('click', function() {
             document.getElementById('lightbox').classList.remove('open');
         });
@@ -1321,7 +1441,6 @@
             updateLightbox();
         });
 
-        // ---- Admin trigger: hold R 2s ----
         document.addEventListener('keydown', function(e) {
             if (e.repeat || (e.key !== 'r' && e.key !== 'R')) return;
             if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
@@ -1362,6 +1481,7 @@
                 err.textContent = hash !== ADMIN_PASS_HASH ? 'Incorrect password' : 'GitHub token required';
             }
         }
+
         document.getElementById('adminPwBtn').addEventListener('click', tryLogin);
         document.getElementById('adminPwInput').addEventListener('keydown', function(e) {
             if (e.key === 'Enter') tryLogin();
@@ -1371,7 +1491,6 @@
             if (e.key === 'Enter') tryLogin();
         });
 
-        // ---- Contact form ----
         var contactForm = document.getElementById('contactForm');
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
