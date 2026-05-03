@@ -140,7 +140,7 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: min(280px, 45%);
+                width: min(340px, 55vw);
                 opacity: 0.30;
                 pointer-events: none;
                 user-select: none;
@@ -176,7 +176,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            height: 100px;
+            height: 48px;
             cursor: pointer;
             opacity: 0.92;
             transition: opacity 0.2s;
@@ -576,13 +576,6 @@
         
         #lightbox.open {
             display: flex;
-        }
-        
-        .lb-img-wrap {
-            position: relative;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
         }
         
         #lightbox img {
@@ -1031,10 +1024,8 @@
     <div id="lightbox">
         <button class="lb-close" id="lbClose">✕</button>
         <button class="lb-nav" id="lb-prev">‹</button>
-        <div class="lb-img-wrap">
-            <img id="lbImg" src="" alt="" draggable="false">
-            <img class="lb-watermark" src="images/logo/logo.png" alt="" draggable="false">
-        </div>
+        <img id="lbImg" src="" alt="" draggable="false">
+        <img class="lb-watermark" src="images/logo/logo.png" alt="" draggable="false">
         <button class="lb-nav" id="lb-next">›</button>
         <div class="lb-caption" id="lbCaption"></div>
     </div>
