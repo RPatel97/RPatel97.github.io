@@ -153,6 +153,18 @@
       "folder": "landscapes"
     },
     {
+      "name": "northern_lights_oct (15 of 22)De.jpg",
+      "url": "images/landscapes/northern_lights_oct%20(15%20of%2022)De.jpg",
+      "thumb": "images/landscapes/northern_lights_oct%20(15%20of%2022)De.jpg",
+      "folder": "landscapes"
+    },
+    {
+      "name": "northern_lights_oct (19 of 22)De.jpg",
+      "url": "images/landscapes/northern_lights_oct%20(19%20of%2022)De.jpg",
+      "thumb": "images/landscapes/northern_lights_oct%20(19%20of%2022)De.jpg",
+      "folder": "landscapes"
+    },
+    {
       "name": "vegas2-02443.jpg",
       "url": "images/landscapes/vegas2-02443.jpg",
       "thumb": "images/landscapes/vegas2-02443.jpg",
@@ -257,5 +269,48 @@
       "folder": "wildlife"
     }
   ],
-  "portraits": []
+  "portraits": [
+    {
+      "name": "E&D_proposal_1.jpg",
+      "url": "images/portraits/E%26D_proposal_1.jpg",
+      "thumb": "images/portraits/E%26D_proposal_1.jpg",
+      "folder": "portraits"
+    },
+    {
+      "name": "E&D_proposal_2.jpg",
+      "url": "images/portraits/E%26D_proposal_2.jpg",
+      "thumb": "images/portraits/E%26D_proposal_2.jpg",
+      "folder": "portraits"
+    },
+    {
+      "name": "HP-CB-2-69.jpg",
+      "url": "images/portraits/HP-CB-2-69.jpg",
+      "thumb": "images/portraits/HP-CB-2-69.jpg",
+      "folder": "portraits"
+    },
+    {
+      "name": "b&b_rnd_2-21De.jpg",
+      "url": "images/portraits/b%26b_rnd_2-21De.jpg",
+      "thumb": "images/portraits/b%26b_rnd_2-21De.jpg",
+      "folder": "portraits"
+    },
+    {
+      "name": "b&b_rnd_2-3De.jpg",
+      "url": "images/portraits/b%26b_rnd_2-3De.jpg",
+      "thumb": "images/portraits/b%26b_rnd_2-3De.jpg",
+      "folder": "portraits"
+    },
+    {
+      "name": "vj_1.jpg",
+      "url": "images/portraits/vj_1.jpg",
+      "thumb": "images/portraits/vj_1.jpg",
+      "folder": "portraits"
+    },
+    {
+      "name": "vj_2.jpg",
+      "url": "images/portraits/vj_2.jpg",
+      "thumb": "images/portraits/vj_2.jpg",
+      "folder": "portraits"
+    }
+  ]
 }
