@@ -1360,9 +1360,18 @@
         }
 
         function getVisible() {
-            if (activeFilter === 'all') return CATEGORIES.reduce(function(a, c) {
-                return a.concat(photos[c]);
-            }, []);
+            if (activeFilter === 'all') {
+                let all = [];
+                CATEGORIES.forEach(function(c) {
+                    all.push(...photos[c]);
+                });
+                // Fisher-Yates shuffle for true randomization
+                for (let i = all.length - 1; i > 0; i--) {
+                    let j = Math.floor(Math.random() * (i + 1));
+                    [all[i], all[j]] = [all[j], all[i]];
+                }
+                return all;
+            }
             return photos[activeFilter] || [];
         }
 
