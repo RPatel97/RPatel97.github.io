@@ -135,18 +135,6 @@
                 font-size: 1.5rem;
                 padding: 0.5rem;
             }
-            .lb-watermark {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: min(340px, 55vw);
-                opacity: 0.30;
-                pointer-events: none;
-                user-select: none;
-                -webkit-user-drag: none;
-                z-index: 201;
-            }
             .lb-close {
                 top: 1rem;
                 right: 1rem;
@@ -160,6 +148,9 @@
             }
             #pricing {
                 padding: 3rem 1rem;
+            }
+            .nav-logo {
+                height: 34px;
             }
         }
         
@@ -176,7 +167,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            height: 48px;
+            height: 100px;
             cursor: pointer;
             opacity: 0.92;
             transition: opacity 0.2s;
@@ -186,12 +177,6 @@
         
         .nav-logo:hover {
             opacity: 1;
-        }
-        
-        @media (max-width: 600px) {
-            .nav-logo {
-                height: 34px;
-            }
         }
         
         .nav-links {
@@ -657,7 +642,6 @@
             padding: 2.5rem;
             background: var(--bg2);
             transition: border-color 0.3s;
-            position: relative;
         }
         
         .pricing-card:hover {
@@ -748,7 +732,7 @@
             letter-spacing: 0.1em;
             color: var(--muted);
         }
-        /* ---- About ---- */
+        /* ---- Contact ---- */
         
         #contact {
             max-width: 560px;
@@ -818,6 +802,7 @@
             border-color: var(--accent);
             color: var(--accent);
         }
+        /* ---- About ---- */
         
         #about {
             border-top: 1px solid var(--border);
@@ -853,23 +838,6 @@
             margin-bottom: 2rem;
         }
         
-        .about-btn {
-            display: inline-block;
-            padding: 0.7rem 2rem;
-            border: 1px solid var(--border);
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            transition: all 0.25s;
-        }
-        
-        .about-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-        
         @media (max-width: 700px) {
             .about-inner {
                 grid-template-columns: 1fr;
@@ -877,9 +845,6 @@
             }
             .about-label {
                 display: flex;
-            }
-            .about-stats {
-                gap: 2rem;
             }
         }
         
@@ -1025,12 +990,10 @@
         <button class="lb-close" id="lbClose">✕</button>
         <button class="lb-nav" id="lb-prev">‹</button>
         <img id="lbImg" src="" alt="" draggable="false">
-        <img class="lb-watermark" src="images/logo/logo.png" alt="" draggable="false">
         <button class="lb-nav" id="lb-next">›</button>
         <div class="lb-caption" id="lbCaption"></div>
     </div>
 
-    <!-- PRICING -->
     <section id="pricing">
         <p class="section-label">Pricing</p>
         <div class="pricing-grid">
