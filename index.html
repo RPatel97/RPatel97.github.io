@@ -135,6 +135,18 @@
                 font-size: 1.5rem;
                 padding: 0.5rem;
             }
+            .lb-watermark {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: min(340px, 55vw);
+                opacity: 0.30;
+                pointer-events: none;
+                user-select: none;
+                -webkit-user-drag: none;
+                z-index: 201;
+            }
             .lb-close {
                 top: 1rem;
                 right: 1rem;
@@ -158,6 +170,28 @@
             text-transform: uppercase;
             color: var(--accent);
             user-select: none;
+        }
+        
+        .nav-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 48px;
+            cursor: pointer;
+            opacity: 0.92;
+            transition: opacity 0.2s;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+        
+        .nav-logo:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 600px) {
+            .nav-logo {
+                height: 34px;
+            }
         }
         
         .nav-links {
@@ -940,6 +974,7 @@
 
     <nav>
         <div class="nav-name">Rishabh Patel</div>
+        <img src="images/logo/logo.png" alt="Stills By Rish" class="nav-logo" id="navLogo">
         <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -990,6 +1025,7 @@
         <button class="lb-close" id="lbClose">✕</button>
         <button class="lb-nav" id="lb-prev">‹</button>
         <img id="lbImg" src="" alt="" draggable="false">
+        <img class="lb-watermark" src="images/logo/logo.png" alt="" draggable="false">
         <button class="lb-nav" id="lb-next">›</button>
         <div class="lb-caption" id="lbCaption"></div>
     </div>
@@ -1105,6 +1141,13 @@
             holdTimer = null;
         var carouselIndex = 0,
             carouselTimer = null;
+
+        document.getElementById('navLogo').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
         var hamburger = document.getElementById('hamburger');
         var navLinks = document.getElementById('navLinks');
